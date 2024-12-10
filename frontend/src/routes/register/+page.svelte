@@ -1,8 +1,6 @@
 <script>
 	import { setUser } from '../../stores/auth';
-	import PocketBase from 'pocketbase';
-
-	const pb = new PocketBase('http://127.0.0.1:8090');
+	import pb from '$lib/pocket';
 
 	let firstName = '';
 	let lastName = '';
@@ -14,7 +12,6 @@
 	const handleRegister = async (e) => {
     e.preventDefault();
 
-    // Validate that passwords match
     if (password !== passwordConfirm) {
       alert('Passwords do not match. Please try again.');
       return;
