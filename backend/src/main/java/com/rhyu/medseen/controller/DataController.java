@@ -16,7 +16,6 @@ public class DataController {
 
     @GetMapping("/api/posts")
     public Object fetchPosts(){
-
         String url = "http://localhost:8090/api/collections/posts/records";
         return restTemplate.getForObject(url, Object.class);
     }
