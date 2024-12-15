@@ -2,6 +2,7 @@
   import {clearUser} from '../../../stores/auth'
   import pb from '../../pocket';
   import { onMount } from 'svelte';
+  import RecordCard from '../ui/RecordCard.svelte';
 
   const handleLogOut = async (e) => {
     pb.authStore.clear();
@@ -25,33 +26,6 @@
   });
 </script>
 
-<style>
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .card {
-    border: 1px solid #ddd;
-    margin: 10px;
-    padding: 20px;
-    width: 200px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .card h2 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-  }
-
-  .card p {
-    font-size: 1rem;
-    color: #555;
-  }
-</style>
-
 <div class="min-h-full">
   <header class="bg-white shadow">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -59,21 +33,17 @@
     </div>
   </header>
   <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-    <button onclick={handleLogOut} class="bg-red-500 px-5 py-2 rounded-sm">Log-out?</button>
-
-    <h3 class="mt-4 text-xl">My Medical Records</h3>
-
+    <a href='/create-record'><button class="bg-gray-800 bg-opacity-5 border-dashed border-4 border-zinc-800 border-opacity-15 text-gray-800 px-5 py-2 rounded-md">Create Record +</button></a>
+    <button onclick={handleLogOut} class="bg-red-500 px-5 py-2 rounded-md text-white">Log-out?</button>
   </div>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <h3 class="mt-4 text-xl">My Medical Records</h3>
       {#if error}
       <p>Error: {error.message}</p>
         {:else if records.length > 0}
-      <div class="cards-container">
+      <div class="flex flex-wrap gap-1">
         {#each records as record}
-          <div class="card">
-            <h2>{record.title}</h2> <!-- Customize based on the record structure -->
-            <p>{record.description}</p> <!-- Display other record details -->
-          </div>
+          <a href='/view/{record.id}'><RecordCard {...record}/></a>
         {/each}
       </div>
         {:else}
