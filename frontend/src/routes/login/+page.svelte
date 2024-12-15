@@ -19,8 +19,7 @@
 
   }
 </script>
-
-<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+<div class="flex min-h-screen flex-col justify-center items-center px-6 py-12 lg:px-8 mx-auto">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
     <img class="mx-auto h-5 w-auto" src="/medseen.png" alt="Medseen Company">
     <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
@@ -58,3 +57,4 @@
     </p>
   </div>
 </div>
+
