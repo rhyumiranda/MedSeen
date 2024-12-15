@@ -5,7 +5,7 @@
 	"scripts": {
 		"frontend:development": "vite dev",
 		"frontend:build": "vite build",
-		"backend:development": "cd ../backend && ./mvnw spring-boot:run",
+		"backend:development": "cd ../pb && ./pocketbase serve",
 		"preview": "vite preview",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",

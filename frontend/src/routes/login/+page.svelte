@@ -12,9 +12,6 @@
       
       const authData = await pb.collection("users").authWithPassword(email, password);
       setUser(authData.record);
-
-      // pb.authStore.clear();
-      // clearUser();
       window.location.href = '/';
     } catch (error) {
       alert('Login failed: ' + error.message);
