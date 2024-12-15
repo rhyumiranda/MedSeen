@@ -26,25 +26,22 @@
 			lastName,
 		};
 
-try {
-    const newUser = await pb.collection('users').create(data);
-    const authData = await pb.collection("users").authWithPassword(email, password);
-		setUser(authData.record);
-    console.log('User created successfully:', authData.record);
-} catch (err) {
-		console.log(data);
-    console.error('Failed to create user:', err);
-}
+		try {
+				const newUser = await pb.collection('users').create(data);
+				const authData = await pb.collection("users").authWithPassword(email, password);
+				setUser(authData.record);
+				console.log('User created successfully:', authData.record);
+				window.location.href = '/';
+		} catch (err) {
+				console.log(data);
+				console.error('Failed to create user:', err);
+		}
   };
 </script>
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
 	<div class="sm:mx-auto sm:w-full sm:max-w-sm">
-		<img
-			class="mx-auto h-10 w-auto"
-			src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-			alt="Your Company"
-		/>
+		<img class="mx-auto h-5 w-auto" src="/medseen.png" alt="Your Company">
 		<h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
 			Become a Member
 		</h2>
