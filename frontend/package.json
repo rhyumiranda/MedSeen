@@ -5,7 +5,7 @@
 	"scripts": {
 		"frontend:development": "vite dev",
 		"frontend:build": "vite build",
-		"backend:development": "cd ../backend && ./mvnw spring-boot:run",
+		"backend:development": "cd ../pb && ./pocketbase serve",
 		"preview": "vite preview",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
@@ -13,6 +13,8 @@
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",
+		"@skeletonlabs/skeleton": "^2.10.3",
+		"@skeletonlabs/tw-plugin": "^0.4.0",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.9.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
@@ -34,6 +36,9 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
-		"pocketbase": "^0.22.1"
+		"pocketbase": "^0.22.1",
+		"react-toastify": "^10.0.6",
+		"svelte-french-toast": "^1.2.0",
+		"svelte-toast": "^1.0.0"
 	}
 }
